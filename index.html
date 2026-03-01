@@ -151,10 +151,10 @@
       <a href="/faq.html">FAQ</a>
       <a href="/contact.html">Contact</a>
     </div>
-    <div class="note" style="margin-top:10px;">© 2026 PayrollDateChecker</div>
+    <div class="note" style="margin-top:10px;">© <span id="year"></span> PayrollDateChecker</div>
   </div>
 </footer>
 
-
+<script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
