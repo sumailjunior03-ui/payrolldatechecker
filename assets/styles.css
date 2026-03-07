@@ -53,3 +53,40 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   outline: 3px solid #111;
   outline-offset: 2px;
 }
+
+/* Content explanation sections (AdSense content depth) */
+.calculator-explanation {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-top: 16px;
+  line-height: 1.7;
+  color: #111;
+}
+.calculator-explanation h2 {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+.calculator-explanation h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 14px 0 4px;
+}
+.calculator-explanation p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+.calculator-explanation ul,
+.calculator-explanation ol {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0 0 10px;
+  padding-left: 20px;
+}
+.calculator-explanation li {
+  margin-bottom: 4px;
+}
