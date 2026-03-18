@@ -1,26 +1,24 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Payroll Processing Date Calculator | PayrollDateChecker.com</title>
-  <meta name="description"
-    content="Estimate payroll submit dates and employee pay dates using U.S. business-day rules (weekends + observed U.S. federal holidays)." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Estimate payroll submit dates and employee pay dates using U.S. business-day rules (weekends and observed federal holidays)." />
   <link rel="canonical" href="https://payrolldatechecker.com/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Payroll Processing Date Calculator | PayrollDateChecker.com" />
-  <meta property="og:description" content="Estimate payroll submit dates and employee pay dates using U.S. business-day rules (weekends + observed U.S. federal holidays)." />
+  <meta property="og:description" content="Estimate payroll submit dates and employee pay dates using U.S. business-day rules (weekends and observed federal holidays)." />
   <meta property="og:url" content="https://payrolldatechecker.com/" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
-  <!-- Google AdSense (verification + in-page ads) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
-    crossorigin="anonymous"></script>
+  <meta property="og:site_name" content="PayrollDateChecker.com" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Payroll Processing Date Calculator | PayrollDateChecker.com" />
+  <meta name="twitter:description" content="Estimate payroll submit dates and employee pay dates using U.S. business-day rules (weekends and observed federal holidays)." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/assets/styles.css" />
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -32,207 +30,160 @@
   "description": "Online payroll processing date calculator that estimates the expected pay date by adding business-day processing time while skipping weekends and U.S. federal holidays (observed)."
 }
 </script>
-
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="/">
-          <span class="t">PayrollDateChecker</span>
-          <span class="s">Payroll submit date calculator (U.S. business days)</span>
-        </a>
-        <nav class="navlinks" aria-label="Site navigation">
-          <a href="/">Calculator</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/legal.html">Legal</a>
-          <a href="/contact.html">Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-
-      <section class="hero">
-        <div class="card">
-          <h1 class="h1">Payroll processing date calculator</h1>
-          <p class="p">Pick a target <b>employee pay date</b> (or a <b>submit date</b>) and a lead-time. Uses U.S.
-            business days: weekends + observed U.S. federal holidays.</p>
-
-          <div class="grid">
-            <div>
-              <label for="direction">I want to…</label>
-              <select id="direction" aria-label="Calculation direction">
-                <option value="submit" selected>Find the submit date (given a pay date)</option>
-                <option value="pay">Find the pay date (given a submit date)</option>
-              </select>
-            </div>
-            <div>
-              <label for="date">Date</label>
-              <input id="date" type="date" aria-label="Base date" />
-              <small>Use the calendar date used by your payroll provider.</small>
-            </div>
-            <div>
-              <label for="preset">Lead-time preset</label>
-              <select id="preset" aria-label="Lead time preset">
-                <option value="ach_2" selected>ACH (2 business days)</option>
-                <option value="ach_1">ACH next-day (1 business day)</option>
-                <option value="same_day">Same-day (0 business days)</option>
-                <option value="wire">Wire (0 business days)</option>
-                <option value="check">Paper check (0 business days)</option>
-                <option value="custom">Custom</option>
-              </select>
-            </div>
-            <div>
-              <label for="leadTime">Lead-time (business days)</label>
-              <input id="leadTime" type="number" min="0" max="15" step="1" value="2" disabled
-                aria-label="Lead time in business days" />
-              <small>Business days exclude weekends and observed U.S. federal holidays.</small>
-            </div>
-          </div>
-
-          <div class="row" style="margin-top:12px;">
-            <button class="btn secondary" id="swap" type="button" aria-label="Swap calculator direction">Swap
-              direction</button>
-            <button class="btn secondary" id="reset" type="button" aria-label="Reset calculator">Reset</button>
-            <span class="badge">No sign-in</span>
-            <span class="badge">Runs locally</span>
-          </div>
-
-          <div class="hr"></div>
-
-          <div id="results" class="kpi hidden" aria-live="polite">
-            <div>
-              <div class="note" id="primaryLabel">Submit payroll on</div>
-              <div class="big" id="primaryDate">—</div>
-            </div>
-            <div>
-              <div class="note" id="secondaryLabel">Employees paid on</div>
-              <div class="big" id="secondaryDate">—</div>
-            </div>
-            <div id="warnings" class="monetize-stack hidden" aria-label="Warnings"></div>
-            <div class="note">Notes: Providers differ on cutoff times and processing windows. Treat this as an estimate
-              and confirm with your provider.</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="note" style="font-weight:900; color:#111;">What counts as a business day?</div>
-          <div class="note" style="margin-top:8px;">
-            A business day is Monday–Friday excluding observed U.S. federal holidays. If a fixed-date holiday lands on a
-            weekend, the observed day is used (Fri/Mon).
-          </div>
-        </div>
-      </section>
-
-
-      <aside class="monetize-stack" aria-label="Monetization zones">
-        <div id="ad1" class="ad-area is-off" aria-label="Ad slot 1"></div>
-        <div id="ad2" class="ad-area is-off" aria-label="Ad slot 2"></div>
-        <div id="sponsor" class="sponsor-area is-off" aria-label="Sponsor placement"></div>
-      </aside>
-      <script src="/assets/config.js"></script>
-      <script src="/assets/app.js"></script>
-      <script src="/assets/network.js"></script>
-
-
-    </div>
-  </main>
-
-
-<div class="container">
-
-  <section class="calculator-explanation">
-    <h2>What This Calculator Does</h2>
-    <p>This payroll processing date calculator estimates when payroll may be completed based on a payroll submission date and a processing time measured in business days.</p>
-    <p>Many payroll providers and banks only process payments on business days. If processing falls on a weekend or a U.S. federal holiday (observed), the expected pay date may shift to the next available business day.</p>
-    <p>This tool provides an estimate for planning and scheduling.</p>
-  </section>
-
-  <section class="calculator-explanation">
-    <h2>Example Payroll Date Calculation</h2>
-    <ul>
-      <li>Payroll submitted: March 4, 2026 (Wednesday)</li>
-      <li>Processing time: 2 business days</li>
-    </ul>
-    <p>The calculator counts forward two business days while skipping weekends and observed U.S. federal holidays.</p>
-    <p><strong>Estimated result:</strong> March 6, 2026 (Friday)</p>
-  </section>
-
-  <section class="calculator-explanation">
-    <h2>Payroll Processing Formula</h2>
-    <p><strong>Estimated Pay Date = Submission Date + Processing Business Days</strong></p>
-    <p>A business day is Monday–Friday excluding observed U.S. federal holidays.</p>
-  </section>
-
-  <section class="calculator-explanation">
-    <h2>Calculation Methodology</h2>
-    <ol>
-      <li>The calculator starts from the payroll submission date.</li>
-      <li>It adds the selected number of <strong>business days</strong>.</li>
-      <li>Weekends (Saturday and Sunday) are skipped automatically.</li>
-      <li>Observed U.S. federal holidays are also skipped.</li>
-      <li>If the resulting date lands on a non-business day, the calculator moves forward to the next available business day.</li>
-    </ol>
-    <p>This tool provides an estimate. Actual timing depends on your payroll provider, bank settlement rules, and cutoff times.</p>
-  </section>
-
-  <section class="calculator-explanation">
-    <h2>Common Payroll Scenarios</h2>
-    <ul>
-      <li>Estimating direct deposit timing</li>
-      <li>Planning payroll around weekends and holidays</li>
-      <li>Checking whether a pay date shifts during holiday weeks</li>
-      <li>Scheduling payroll submissions for HR teams</li>
-      <li>Estimating when employees may receive funds</li>
-    </ul>
-  </section>
-
-  <section class="calculator-explanation">
-    <h2>FAQ</h2>
-    <h3>Does this include weekends?</h3>
-    <p>No. Weekends are skipped because they are not business days.</p>
-    <h3>Does this include U.S. federal holidays?</h3>
-    <p>No. Observed U.S. federal holidays are treated as non-business days.</p>
-    <h3>Will this match my payroll provider exactly?</h3>
-    <p>Not always. Providers may have cutoff times and bank settlement rules that affect timing.</p>
-    <h3>What if the estimated date lands on a holiday?</h3>
-    <p>The calculator moves the date forward to the next available business day.</p>
-    <h3>Is this a guarantee of when employees get paid?</h3>
-    <p>No. This is an estimate for planning. Always confirm with your payroll provider.</p>
-  </section>
-
-</div>
-
-  <footer>
-    <div class="container">
-      <div class="footgrid">
-        <div>
-          <div class="badge">Partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></div>
-          <div class="note" style="margin-top:10px;">This site runs calculations in your browser. No accounts. No saved
-            inputs.</div>
-        </div>
-        <div>
-          <div class="note" style="font-weight:800; color:#111; margin-bottom:8px;">Related tools</div>
-          <div class="network-links footlinks"></div>
-        </div>
-      </div>
-      <div class="hr"></div>
-      <div class="footlinks">
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="/">
+        <span class="t">PayrollDateChecker</span>
+        <span class="s">Payroll submit date calculator (U.S. business days)</span>
+      </a>
+      <nav class="navlinks" aria-label="Site navigation">
+        <a class="active" aria-current="page" href="/">Calculator</a>
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/legal.html">Legal</a>
-        <a href="/faq.html">FAQ</a>
         <a href="/contact.html">Contact</a>
-      </div>
-      <div class="note" style="margin-top:10px;">© <span id="year"></span> PayrollDateChecker</div>
+      </nav>
     </div>
-  </footer>
+  </div>
+</header>
+<main>
+  <div class="container">
+    
+<section class="hero">
+  <div class="card">
+    <h1 class="h1">Payroll Date Checker</h1>
+    <p class="p">Pick a target <b>employee pay date</b> (or a <b>submit date</b>) and a lead-time. Uses U.S. business days: weekends + observed U.S. federal holidays.</p>
+
+    <div class="grid">
+      <div>
+        <label for="direction">I want to…</label>
+        <select id="direction" aria-label="Calculation direction">
+          <option value="submit" selected>Find the submit date (given a pay date)</option>
+          <option value="pay">Find the pay date (given a submit date)</option>
+        </select>
+      </div>
+      <div>
+        <label for="date">Date</label>
+        <input id="date" type="date" aria-label="Base date" />
+        <small>Use the calendar date used by your payroll provider.</small>
+      </div>
+      <div>
+        <label for="preset">Lead-time preset</label>
+        <select id="preset" aria-label="Lead time preset">
+          <option value="ach_2" selected>ACH (2 business days)</option>
+          <option value="ach_1">ACH next-day (1 business day)</option>
+          <option value="same_day">Same-day (0 business days)</option>
+          <option value="wire">Wire (0 business days)</option>
+          <option value="check">Paper check (0 business days)</option>
+          <option value="custom">Custom</option>
+        </select>
+      </div>
+      <div>
+        <label for="leadTime">Lead-time (business days)</label>
+        <input id="leadTime" type="number" min="0" max="15" step="1" value="2" disabled aria-label="Lead time in business days" />
+        <small>Business days exclude weekends and observed U.S. federal holidays.</small>
+      </div>
+    </div>
+
+    <div class="row" style="margin-top:12px;">
+      <button class="btn secondary" id="swap" type="button" aria-label="Swap calculator direction">Swap direction</button>
+      <button class="btn secondary" id="reset" type="button" aria-label="Reset calculator">Reset</button>
+      <span class="badge">No sign-in</span>
+      <span class="badge">Runs locally</span>
+    </div>
+
+    <div class="hr"></div>
+
+    <div id="results" class="kpi hidden" aria-live="polite">
+      <div>
+        <div class="note" id="primaryLabel">Submit payroll on</div>
+        <div class="big" id="primaryDate">—</div>
+      </div>
+      <div>
+        <div class="note" id="secondaryLabel">Employees paid on</div>
+        <div class="big" id="secondaryDate">—</div>
+      </div>
+      <div id="warnings" class="monetize-stack hidden" aria-label="Warnings"></div>
+      <div class="note">Notes: Providers differ on cutoff times and processing windows. Treat this as an estimate and confirm with your provider.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="note" style="font-weight:900; color:#111;">What counts as a business day?</div>
+    <div class="note" style="margin-top:8px;">
+      A business day is Monday–Friday excluding observed U.S. federal holidays. If a fixed-date holiday lands on a weekend, the observed day is used (Fri/Mon).
+    </div>
+  </div>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>When This Calculator Is Useful</h2>
+  <p class="note">Use this calculator when you need to plan payroll submission or payment timing around business days. It is helpful for HR teams, payroll administrators, and business owners who need to confirm submit-by dates to ensure employees are paid on a specific target date, or to predict when funds will arrive given a known submit date and provider lead-time.</p>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>What This Calculator Does</h2>
+  <p class="note">This calculator takes a target date and a lead-time in business days, then counts backward or forward across U.S. business days to return the corresponding submit date or pay date. It accounts for weekends and observed U.S. federal holidays. You can switch between two modes: finding the submit date from a known pay date, or finding the pay date from a known submit date.</p>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>Calculation Methodology</h2>
+  <p class="note">Business days are defined as Monday through Friday, excluding observed U.S. federal holidays. When a fixed-date holiday falls on a Saturday, the preceding Friday is the observed holiday. When it falls on a Sunday, the following Monday is the observed holiday. The calculator steps through calendar days one at a time, skipping non-business days, until the specified number of business-day lead-time intervals have been traversed. All calculations run locally in your browser.</p>
+</section>
+
+
+  <aside class="monetize-stack" aria-label="Monetization zones">
+    <div id="ad1" class="ad-area is-off" aria-label="Ad slot 1">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="" data-ad-slot=""
+           data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+    <div id="ad2" class="ad-area is-off" aria-label="Ad slot 2">
+      <ins class="adsbygoogle" style="display:block" data-ad-client="" data-ad-slot=""
+           data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>
+    <div id="sponsor" class="sponsor-area is-off" aria-label="Sponsor placement"></div>
+  </aside>
+  <script src="/assets/config.js"></script>
+  <script src="/assets/app.js"></script>
+
+
+  </div>
+</main>
+<footer>
+  <div class="container">
+    <div class="footgrid">
+      <div>
+        <div class="badge">Partnerships: partnerships@calc-hq.com</div>
+        <div class="note" style="margin-top:10px;">This site runs calculations in your browser. No accounts. No saved inputs.</div>
+        <div class="note" style="font-weight:800; color:#111; margin:14px 0 8px;">Resources</div>
+        <div class="footlinks footer-resources"><a href="https://calc-hq.com" target="_blank" rel="noopener">Financial Calculator Hub</a></div>
+      </div>
+      <div>
+        <div class="note" style="font-weight:800; color:#111; margin-bottom:8px;">Related tools</div>
+        <div class="footlinks" id="related-tools"></div>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div class="footlinks">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="note" style="margin-top:10px;">&copy; <span id="year"></span> PayrollDateChecker</div>
+  </div>
+</footer>
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="/network.js" defer></script>
+  <script src="/assets/config.js" defer></script>
+  <script src="/assets/app.js" defer></script>
+  <script src="/ads.js" defer></script>
+  <script src="/footer.js" defer></script>
 </body>
-
 </html>

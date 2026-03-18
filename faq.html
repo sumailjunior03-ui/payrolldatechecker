@@ -1,35 +1,31 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FAQ | PayrollDateChecker.com</title>
-  <meta name="description"
-    content="Frequently asked questions about the Payroll Date Checker — how payroll processing dates are calculated, what business days are used, and how to use the tool." />
-  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Frequently asked questions about payroll submission timing, business-day lead times, and estimated pay dates." />
   <link rel="canonical" href="https://payrolldatechecker.com/faq.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="FAQ | PayrollDateChecker.com" />
-  <meta property="og:description" content="Frequently asked questions about the Payroll Date Checker — how payroll processing dates are calculated, what business days are used, and how to use the tool." />
-  <meta property="og:url" content="https://payrolldatechecker.com/faq.html" />
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta name="robots" content="index, follow" />
   <meta name="google-adsense-account" content="ca-pub-7744853829365165" />
-  <!-- Google AdSense (verification + in-page ads) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165"
-    crossorigin="anonymous"></script>
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="FAQ | PayrollDateChecker.com" />
+  <meta property="og:description" content="Frequently asked questions about payroll submission timing, business-day lead times, and estimated pay dates." />
+  <meta property="og:url" content="https://payrolldatechecker.com/faq.html" />
+  <meta property="og:site_name" content="PayrollDateChecker.com" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="FAQ | PayrollDateChecker.com" />
+  <meta name="twitter:description" content="Frequently asked questions about payroll submission timing, business-day lead times, and estimated pay dates." />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/assets/styles.css" />
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Payroll Processing Date Calculator",
-  "url": "https://payrolldatechecker.com/",
-  "applicationCategory": "FinanceApplication",
-  "operatingSystem": "All",
-  "description": "Online payroll processing date calculator that estimates the expected pay date by adding business-day processing time while skipping weekends and U.S. federal holidays (observed)."
+  "@type": "WebPage",
+  "name": "FAQ",
+  "url": "https://payrolldatechecker.com/faq.html",
+  "description": "Frequently asked questions about payroll submission timing, business-day lead times, and estimated pay dates."
 }
 </script>
 <script type="application/ld+json">
@@ -37,91 +33,154 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "What does this tool calculate?", "acceptedAnswer": { "@type": "Answer", "text": "It estimates either (1) the payroll submit date needed to hit a target pay date, or (2) the pay date you'll likely hit if you submit payroll on a given date." } },
-    { "@type": "Question", "name": "What calendar does it use?", "acceptedAnswer": { "@type": "Answer", "text": "U.S. business days: Monday\u2013Friday excluding observed U.S. federal holidays." } },
-    { "@type": "Question", "name": "Is this exact for my payroll provider?", "acceptedAnswer": { "@type": "Answer", "text": "It's an estimate. Providers differ on cutoff times and processing windows. Confirm with your provider for final timing." } },
-    { "@type": "Question", "name": "Do you store my inputs?", "acceptedAnswer": { "@type": "Answer", "text": "No. The calculator runs in your browser and does not save inputs." } }
+    {
+      "@type": "Question",
+      "name": "What does this calculator estimate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It estimates payroll submission dates or projected employee pay dates using business-day lead times."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it count weekends as payroll processing days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Saturdays and Sundays are excluded from business-day processing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do observed U.S. federal holidays affect the result?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Observed federal holidays are excluded the same way weekends are."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I work backward from a target pay date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The calculator supports reverse mode so you can estimate the latest practical submission date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I work forward from a submission date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The forward mode estimates when employees may be paid after the chosen lead time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if my payroll provider uses a different lead time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a custom lead-time value or select the closest preset that matches your process."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a guarantee of settlement or payroll posting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. It is a timing estimate based on stated assumptions, not a guarantee from a payroll processor or bank."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why are related calculators shown on the site?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Related calculators help answer nearby timing questions such as business-day validation and bank cutoff timing."
+      }
+    }
   ]
 }
 </script>
-
 </head>
-
 <body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <a class="brand" href="/">
-          <span class="t">PayrollDateChecker</span>
-          <span class="s">Payroll submit date calculator (U.S. business days)</span>
-        </a>
-        <nav class="navlinks" aria-label="Site navigation">
-          <a href="/">Calculator</a>
-          <a href="/faq.html">FAQ</a>
-          <a href="/privacy.html">Privacy</a>
-          <a href="/legal.html">Legal</a>
-          <a href="/contact.html">Contact</a>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-
-      <div class="card">
-        <h1 class="h1">FAQ</h1>
-        <div class="hr"></div>
-        <p class="note"><b>What does this tool calculate?</b><br />It estimates either (1) the payroll <b>submit
-            date</b> needed to hit a target <b>pay date</b>, or (2) the <b>pay date</b> you’ll likely hit if you submit
-          payroll on a given date.</p>
-        <p class="note"><b>What calendar does it use?</b><br />U.S. business days: Monday–Friday excluding observed U.S.
-          federal holidays.</p>
-        <p class="note"><b>Is this exact for my payroll provider?</b><br />It’s an estimate. Providers differ on cutoff
-          times and processing windows. Confirm with your provider for final timing.</p>
-        <p class="note"><b>Do you store my inputs?</b><br />No. The calculator runs in your browser and does not save
-          inputs.</p>
-      </div>
-
-      <aside class="monetize-stack" aria-label="Monetization zones">
-        <div id="ad1" class="ad-area is-off" aria-label="Ad slot 1"></div>
-        <div id="ad2" class="ad-area is-off" aria-label="Ad slot 2"></div>
-        <div id="sponsor" class="sponsor-area is-off" aria-label="Sponsor placement"></div>
-      </aside>
-      <script src="/assets/config.js"></script>
-      <script src="/assets/app.js"></script>
-      <script src="/assets/network.js"></script>
-
-
-    </div>
-  </main>
-
-
-  <footer>
-    <div class="container">
-      <div class="footgrid">
-        <div>
-          <div class="badge">Partnerships: <a href="mailto:partnerships@calc-hq.com">partnerships@calc-hq.com</a></div>
-          <div class="note" style="margin-top:10px;">This site runs calculations in your browser. No accounts. No saved
-            inputs.</div>
-        </div>
-        <div>
-          <div class="note" style="font-weight:800; color:#111; margin-bottom:8px;">Related tools</div>
-          <div class="network-links footlinks"></div>
-        </div>
-      </div>
-      <div class="hr"></div>
-      <div class="footlinks">
+<header>
+  <div class="container">
+    <div class="nav">
+      <a class="brand" href="/">
+        <span class="t">PayrollDateChecker</span>
+        <span class="s">Payroll submit date calculator (U.S. business days)</span>
+      </a>
+      <nav class="navlinks" aria-label="Site navigation">
+        <a href="/">Calculator</a>
+        <a href="/about.html">About</a>
+        <a class="active" aria-current="page" href="/faq.html">FAQ</a>
         <a href="/privacy.html">Privacy</a>
         <a href="/legal.html">Legal</a>
-        <a href="/faq.html">FAQ</a>
         <a href="/contact.html">Contact</a>
-      </div>
-      <div class="note" style="margin-top:10px;">© <span id="year"></span> PayrollDateChecker</div>
+      </nav>
     </div>
-  </footer>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-copy">
+    <h1>FAQ</h1>
+
+    <h2>What does this calculator estimate?</h2>
+    <p>It estimates payroll submission dates or projected employee pay dates using business-day lead times.</p>
+
+    <h2>Does it count weekends as payroll processing days?</h2>
+    <p>No. Saturdays and Sundays are excluded from business-day processing.</p>
+
+    <h2>Do observed U.S. federal holidays affect the result?</h2>
+    <p>Yes. Observed federal holidays are excluded the same way weekends are.</p>
+
+    <h2>Can I work backward from a target pay date?</h2>
+    <p>Yes. The calculator supports reverse mode so you can estimate the latest practical submission date.</p>
+
+    <h2>Can I work forward from a submission date?</h2>
+    <p>Yes. The forward mode estimates when employees may be paid after the chosen lead time.</p>
+
+    <h2>What if my payroll provider uses a different lead time?</h2>
+    <p>Use a custom lead-time value or select the closest preset that matches your process.</p>
+
+    <h2>Is this a guarantee of settlement or payroll posting?</h2>
+    <p>No. It is a timing estimate based on stated assumptions, not a guarantee from a payroll processor or bank.</p>
+
+    <h2>Why are related calculators shown on the site?</h2>
+    <p>Related calculators help answer nearby timing questions such as business-day validation and bank cutoff timing.</p>
+  </section>
+</main>
+<footer>
+  <div class="container">
+    <div class="footgrid">
+      <div>
+        <div class="badge">Partnerships: partnerships@calc-hq.com</div>
+        <div class="note" style="margin-top:10px;">This site runs calculations in your browser. No accounts. No saved inputs.</div>
+        <div class="note" style="font-weight:800; color:#111; margin:14px 0 8px;">Resources</div>
+        <div class="footlinks footer-resources"><a href="https://calc-hq.com" target="_blank" rel="noopener">Financial Calculator Hub</a></div>
+      </div>
+      <div>
+        <div class="note" style="font-weight:800; color:#111; margin-bottom:8px;">Related tools</div>
+        <div class="footlinks" id="related-tools"></div>
+      </div>
+    </div>
+    <div class="hr"></div>
+    <div class="footlinks">
+      <a href="/about.html">About</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/legal.html">Legal</a>
+      <a href="/faq.html">FAQ</a>
+      <a href="/contact.html">Contact</a>
+    </div>
+    <div class="note" style="margin-top:10px;">&copy; <span id="year"></span> PayrollDateChecker</div>
+  </div>
+</footer>
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+  <script src="/network.js" defer></script>
+  <script src="/assets/config.js" defer></script>
+  <script src="/assets/app.js" defer></script>
+  <script src="/ads.js" defer></script>
+  <script src="/footer.js" defer></script>
 </body>
-
 </html>
