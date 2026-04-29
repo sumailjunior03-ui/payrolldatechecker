@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="Payroll Processing Date Calculator | PayrollDateChecker.com" />
   <meta name="twitter:description" content="Estimate payroll submit dates and employee pay dates using U.S. business-day rules (weekends and observed federal holidays)." />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7744853829365165" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="stylesheet" href="/assets/styles.css?v=layout-repair-0429" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -121,18 +121,48 @@
 </section>
 
 <section class="card" style="margin-top:18px;">
-  <h2>When This Calculator Is Useful</h2>
-  <p class="note">Use this calculator when you need to plan payroll submission or payment timing around business days. It is helpful for HR teams, payroll administrators, and business owners who need to confirm submit-by dates to ensure employees are paid on a specific target date, or to predict when funds will arrive given a known submit date and provider lead-time.</p>
-</section>
-
-<section class="card" style="margin-top:18px;">
   <h2>What This Calculator Does</h2>
-  <p class="note">This calculator takes a target date and a lead-time in business days, then counts backward or forward across U.S. business days to return the corresponding submit date or pay date. It accounts for weekends and observed U.S. federal holidays. You can switch between two modes: finding the submit date from a known pay date, or finding the pay date from a known submit date.</p>
+  <p>You enter a target pay date (or submit date) and a lead-time in business days, and the tool returns the corresponding submit date or pay date. For example, if your employees are paid on Friday, May 22, 2026 and you use ACH with a 2 business-day lead time, the tool returns Wednesday, May 20, 2026 as your submit-by date — skipping weekends and the observed Memorial Day holiday if it falls in the window.</p>
 </section>
 
 <section class="card" style="margin-top:18px;">
-  <h2>Calculation Methodology</h2>
-  <p class="note">Business days are defined as Monday through Friday, excluding observed U.S. federal holidays. When a fixed-date holiday falls on a Saturday, the preceding Friday is the observed holiday. When it falls on a Sunday, the following Monday is the observed holiday. The calculator steps through calendar days one at a time, skipping non-business days, until the specified number of business-day lead-time intervals have been traversed. All calculations run locally in your browser.</p>
+  <h2>Example Calculations</h2>
+  <p><strong>Scenario 1 — Find submit date from pay date:</strong> Pay date = Friday, May 22, 2026. ACH lead time = 2 business days. Count backward: Thursday May 21 (1 biz day), Wednesday May 20 (2 biz days). <strong>Submit by Wednesday, May 20.</strong></p>
+  <p><strong>Scenario 2 — Holiday in the window:</strong> Pay date = Tuesday, May 26, 2026 (Tuesday after Memorial Day). ACH lead time = 2 business days. Count backward: Monday May 25 is Memorial Day (skipped), Friday May 23 (1 biz day), Thursday May 21 (2 biz days). <strong>Submit by Thursday, May 21.</strong></p>
+  <p><strong>Scenario 3 — Find pay date from submit date:</strong> Submit date = Wednesday, June 18, 2025. ACH lead time = 2 business days. Count forward: Thursday June 19 (1 biz day), Friday June 20 (2 biz days). <strong>Employees paid Friday, June 20.</strong></p>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>Decision Logic</h2>
+  <p>The tool works in three steps: <strong>lookup</strong> the base date and lead-time preset, <strong>count</strong> business days forward or backward one calendar day at a time (skipping weekends and observed federal holidays), then <strong>return</strong> the resulting date with a clear label showing whether it is a submit date or pay date.</p>
+  <p>Direction modes: "Find submit date" counts backward from the pay date. "Find pay date" counts forward from the submit date. The swap button toggles between them.</p>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>How This Tool Calculates the Result</h2>
+  <p><strong>Business day definition:</strong> Monday through Friday, excluding the 11 observed U.S. federal holidays (New Year's Day, MLK Day, Presidents' Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving, Christmas Day). When a fixed-date holiday falls on a Saturday, the preceding Friday is observed. When it falls on a Sunday, the following Monday is observed.</p>
+  <p><strong>Lead-time presets:</strong> ACH standard = 2 business days (the most common payroll processing window). ACH next-day = 1 business day. Same-day, wire, and paper check = 0 business days (though your provider may still have cutoff-time rules). Custom = any value from 0 to 15 business days.</p>
+  <p><strong>Counting method:</strong> The calculator steps through calendar days one at a time in the required direction, checking each day against the business-day rules. The start date (the date you input) is not counted — only the days between the start and result are counted. This matches how payroll providers typically define lead time: a 2-day ACH window means two business days <em>between</em> submission and deposit.</p>
+  <p>All calculations run locally in your browser. No data is sent to any server.</p>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>Data Sourcing</h2>
+  <p>The federal holiday schedule follows the U.S. Office of Personnel Management (OPM) observed holiday rules. The observed-date logic (Saturday → Friday, Sunday → Monday) is based on OPM's standard federal holiday observance policy.</p>
+  <p>Lead-time presets are based on general payroll industry practice, not any single provider's terms. ACH settlement timelines are governed by Nacha operating rules, but individual banks and payroll processors set their own cutoff times and processing windows. A 2 business-day ACH lead time is the most common default, but your provider may require more or fewer days.</p>
+  <p>This tool provides planning estimates. Confirm actual processing timelines with your payroll provider.</p>
+</section>
+
+<section class="card" style="margin-top:18px;">
+  <h2>Limitations</h2>
+  <ul>
+    <li>Does not account for provider-specific cutoff times — if you submit at 3:00 PM and your provider's cutoff is 2:00 PM, your submission may roll to the next day</li>
+    <li>Does not check bank-specific holidays or state/local holidays — only the 11 federal holidays are excluded</li>
+    <li>Lead-time presets are general estimates; your payroll processor's actual ACH or wire timeline may differ</li>
+    <li>Same-day and wire presets show 0 business days, but real-time payment networks (FedNow, RTP) and wire cutoffs are not modeled</li>
+    <li>Does not handle international payroll dates or non-U.S. holiday calendars</li>
+    <li>Year-end processing (December holidays into January) is handled, but does not model fiscal-year or quarter boundaries specific to your organization</li>
+  </ul>
 </section>
 
 
@@ -147,8 +177,6 @@
     </div>
     <div id="sponsor" class="sponsor-area is-off" aria-label="Sponsor placement"></div>
   </aside>
-  <script src="/assets/config.js"></script>
-  <script src="/assets/app.js"></script>
 
 
   </div>
@@ -180,10 +208,9 @@
 </footer>
 
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-  <script src="/network.js" defer></script>
+  <script src="/network.js"></script>
   <script src="/assets/config.js" defer></script>
   <script src="/assets/app.js" defer></script>
   <script src="/ads.js" defer></script>
-  <script src="/footer.js" defer></script>
 </body>
 </html>
