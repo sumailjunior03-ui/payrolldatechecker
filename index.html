@@ -114,25 +114,25 @@
 </section>
 
 <section class="card" style="margin-top:18px;">
-  <h2>What This Calculator Does</h2>
+  <h2>When Payroll Timing Changes the Real Pay Date</h2>
   <p>You enter a target pay date (or submit date) and a lead-time in business days, and the tool returns the corresponding submit date or pay date. For example, if your employees are paid on Friday, May 22, 2026 and you use ACH with a 2 business-day lead time, the tool returns Wednesday, May 20, 2026 as your submit-by date — skipping weekends and the observed Memorial Day holiday if it falls in the window.</p>
 </section>
 
 <section class="card" style="margin-top:18px;">
-  <h2>Example Calculations</h2>
+  <h2>Seeing It in Action: Two Payroll Runs</h2>
   <p><strong>Scenario 1 — Find submit date from pay date:</strong> Pay date = Friday, May 22, 2026. ACH lead time = 2 business days. Count backward: Thursday May 21 (1 biz day), Wednesday May 20 (2 biz days). <strong>Submit by Wednesday, May 20.</strong></p>
   <p><strong>Scenario 2 — Holiday in the window:</strong> Pay date = Tuesday, May 26, 2026 (Tuesday after Memorial Day). ACH lead time = 2 business days. Count backward: Monday May 25 is Memorial Day (skipped), Friday May 23 (1 biz day), Thursday May 21 (2 biz days). <strong>Submit by Thursday, May 21.</strong></p>
   <p><strong>Scenario 3 — Find pay date from submit date:</strong> Submit date = Wednesday, June 18, 2025. ACH lead time = 2 business days. Count forward: Thursday June 19 (1 biz day), Friday June 20 (2 biz days). <strong>Employees paid Friday, June 20.</strong></p>
 </section>
 
 <section class="card" style="margin-top:18px;">
-  <h2>Decision Logic</h2>
+  <h2>Why Your Pay Date Doesn't Match the Pay Period</h2>
   <p>The tool works in three steps: <strong>lookup</strong> the base date and lead-time preset, <strong>count</strong> business days forward or backward one calendar day at a time (skipping weekends and observed federal holidays), then <strong>return</strong> the resulting date with a clear label showing whether it is a submit date or pay date.</p>
   <p>Direction modes: "Find submit date" counts backward from the pay date. "Find pay date" counts forward from the submit date. The swap button toggles between them.</p>
 </section>
 
 <section class="card" style="margin-top:18px;">
-  <h2>How This Tool Calculates the Result</h2>
+  <h2>How Processing Days Push Pay Dates Forward</h2>
   <p><strong>Business day definition:</strong> Monday through Friday, excluding the 11 observed U.S. federal holidays (New Year's Day, MLK Day, Presidents' Day, Memorial Day, Juneteenth, Independence Day, Labor Day, Columbus Day, Veterans Day, Thanksgiving, Christmas Day). When a fixed-date holiday falls on a Saturday, the preceding Friday is observed. When it falls on a Sunday, the following Monday is observed.</p>
   <p><strong>Lead-time presets:</strong> ACH standard = 2 business days (the most common payroll processing window). ACH next-day = 1 business day. Same-day, wire, and paper check = 0 business days (though your provider may still have cutoff-time rules). Custom = any value from 0 to 15 business days.</p>
   <p><strong>Counting method:</strong> The calculator steps through calendar days one at a time in the required direction, checking each day against the business-day rules. The start date (the date you input) is not counted — only the days between the start and result are counted. This matches how payroll providers typically define lead time: a 2-day ACH window means two business days <em>between</em> submission and deposit.</p>
