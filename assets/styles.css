@@ -81,10 +81,11 @@ section.card li{ margin-bottom:3px; }
 @media (max-width:640px){
   .container{ padding:12px; }
   .nav{ padding:8px 0; }
-  .brand .t{ font-size:14px; }
+  .brand .t{ font-size:18px; }
   .brand .s{ font-size:11px; }
+  .brand{ gap:4px; }
   .navlinks{ gap:8px; }
-  .navlinks a{ font-size:12px; }
+  .navlinks a{ font-size:11px; }
   .h1{ font-size:20px; }
   .kpi .big{ font-size:18px; }
   .card{ padding:12px; }
@@ -96,8 +97,8 @@ section.card li{ margin-bottom:3px; }
   /* Safe bottom spacing for mobile browser UI */
   main{ padding-bottom:max(24px, env(safe-area-inset-bottom, 24px)); }
   /* P0: mobile nav — prevent link concatenation and overflow */
-  .header-nav{ display:flex; flex-wrap:wrap; gap:6px 10px; }
-  .header-nav a{ font-size:12px; white-space:nowrap; }
+  .header-nav{ display:flex; flex-wrap:wrap; gap:5px 8px; }
+  .header-nav a{ font-size:11px; white-space:nowrap; }
 }
 
 /* Accessibility: visible focus ring */
