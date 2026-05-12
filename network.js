@@ -151,7 +151,7 @@
 
     footerTarget.innerHTML = [
       '<div class="footer-grid">',
-        '<div><h2>Site links</h2><ul class="footer-nav-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/legal.html">Legal</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>',
+        '<div><ul class="footer-nav-links"><li><a href="/">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/privacy.html">Privacy Policy</a></li><li><a href="/legal.html">Legal</a></li><li><a href="/faq.html">FAQ</a></li><li><a href="/contact.html">Contact</a></li></ul></div>',
         '<div><h2>Related tools</h2>', relatedHtml, '</div>',
         '<div><h2>Resources</h2><p><a href="https://calc-hq.com/" target="_blank" rel="noopener">Financial Calculator Hub</a></p><h2>Contact</h2><p><a href="mailto:' + email + '">' + email + '</a></p></div>',
       '</div>',
